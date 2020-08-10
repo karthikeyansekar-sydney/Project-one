@@ -1,0 +1,31 @@
+<%= form_for @property do |f| %>
+
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :address %><br>
+  <%= f.text_field :address %>
+  <br>
+
+  <%= f.label :price %><br>
+  <%= f.text_field :price %>
+  <br>
+
+  <%= f.label :rooms %><br>
+  <%= f.text_field :rooms %>
+  <br>
+
+  <%= f.label :bathrooms %><br>
+  <%= f.text_field :bathrooms %>
+  <br>
+
+  <%= f.label :image, 'Image URL' %><br>
+  <%= f.text_field :image %>
+
+  <br>
+  <br>
+
+  <%= f.submit %>
+
+<% end %>

@@ -1,0 +1,39 @@
+img.property {
+  max-height: 600px;
+}
+
+.carousel {
+  display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden
+      padding: 20px;
+}
+
+#btn{
+  align-items: center;
+}
+
+.prop-show , .prop-index {
+  text-align: center;
+  background-color: #b2ffff;
+/* #ffebf5 */
+}
+
+ul {
+  list-style-type: none;
+}
+
+main {
+  background-color: #b2ffff;
+}
+
+img:hover {
+  border-radius: 10px;
+  box-shadow: 0 8px 8px -6px black;
+}
+
+
+img{
+  border-radius: 10px;
+}
