@@ -6,7 +6,7 @@ img.property {
   display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden
+      overflow: hidden;
       padding: 20px;
 }
 
