@@ -15,3 +15,17 @@ p2 = Property.create! name: 'River Realty', address: '36 Victoria Street, Mcmaho
 p3 = Property.create! name: 'Malvern Avenue', address: '49 Malvern Avenue, Manly NSW 2095', price: 600000, rooms: 4, bathrooms: 2, image: 'https://rimh2.domainstatic.com.au/hzVJfNiBmvhAjMwTSGvsewfxw6U=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/2016388660_1_1_200721_023310-w1600-h1200'
 
 puts "created #{Property.count} properties."
+
+User.destroy_all
+
+u1 = User.create! email: 'kart@ga.com', password: 'chicken', name: 'Kart', admin: true
+u2 = User.create! email: 'baga@ga.com', password: 'chicken', name: 'Bagavathi'
+u3 = User.create! email: 'geet@ga.com', password: 'chicken', name: 'Geet'
+
+puts "Created #{User.count} users."
+
+u1.properties << p1 << p3
+u2.properties << p2
+
+print "User #{User.first.name} has properties:"
+puts User.first.properties.pluck(:name).join(',')

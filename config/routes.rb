@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/welcome'
+  get 'pages/home'
   root to: 'properties#main'
   # 2. Form submit, create, redirect to index
   get '/properties/new' => 'properties#new', as: 'new_property'
@@ -15,4 +17,12 @@ Rails.application.routes.draw do
 
   delete '/properties/:id' => 'properties#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # Session routes:
+  get '/login' => 'session#new' # login form
+  # form submits here, do authentication & create session & redirect, or show form with errors
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
+
+  resources :users
 end
