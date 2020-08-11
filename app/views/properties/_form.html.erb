@@ -1,6 +1,6 @@
 <section class="form-auth text-center">
 
-  <%= form_for @property do |f| %>
+  <%= form_for @property, html: {multipart: true} do |f| %>
   <div class="field">
 
     <%= f.text_field :name, :class => 'form-control', :placeholder => 'name' %>
@@ -30,8 +30,7 @@
 
     <div class="field">
 
-      <%= f.text_field :image, :class => 'form-control' , :placeholder => 'image'%>
-
+<%= f.cl_image_upload :image %>
       <br>
       <br>
     </div>

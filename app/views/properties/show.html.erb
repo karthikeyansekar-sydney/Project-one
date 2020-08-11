@@ -1,7 +1,13 @@
-<div class="prop-show">
+
+<div class="container-fluid">
+<div class="row">
+
+
+  <div class="col align-self-center">
 
   <h2>
     <%= @property.name %>
+    <span><%= image_tag ('real-estate.png') %></span>
   </h2>
 
   <%= link_to 'Edit Property', edit_property_path(@property.id) %>
@@ -22,20 +28,26 @@
 
   <p>
     <strong>Price</strong>
-    <%= @property.price %>
+    $<%= @property.price %>
   </p>
 
   <p>
-    <strong>Rooms:</strong>
+    <strong>Bedrooms:</strong>
     <%= @property.rooms %>
+    <span class="icons"><%= image_tag ('bed.svg') %></span>
+
   </p>
 
   <p>
     <strong>Bathrooms:</strong>
     <%= @property.bathrooms %>
+    <span class="icons"><%= image_tag ('bath.svg') %></span>
   </p>
-
-  <% if @property.image.present? %>
-    <%= image_tag @property.image, alt: @property.name, class: 'property' %>
-  <% end %>
+</div>
+<div class="col">
+<div class="prop-main-photo">
+  <%= cl_image_tag @property.image%>
+  </div>
+</div>
+</div>
 </div>

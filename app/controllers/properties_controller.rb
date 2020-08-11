@@ -4,7 +4,12 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    Property.create property_params # use strong params to filter the form fields being saved
+    @property = Property.new(property_params) # use strong params to filter the form fields being saved
+    if params[:file].present?
+      response = Cloudinary::Uploader.upload(params[:file])
+      @property.image = response['public_id']
+      @property.save
+    end
     redirect_to properties_path
   end
 
