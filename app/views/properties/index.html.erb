@@ -1,23 +1,18 @@
-
 <div class="prop-index">
 
-<h2>All Properties</h2>
+  <h2>All Properties</h2>
 
-<ul>
-<% @properties.each do |property| %>
+  <ul>
+    <% @properties.each do |property| %>
 
-  <li>
-    <!-- SHOW page URL is /propertys/:id -->
-    <!--
-      <a href="<#%=property_path( property.id ) %>">
-      < #%= property.name %>
-      </a>
-    -->
+      <li>
+        <!-- SHOW page URL is /propertys/:id -->
+        <!-- <a href="<#%=property_path( property.id ) %>"> < #%= property.name %> </a> -->
 
-    <%= link_to property.name, property_path(property.id) %>
+        <%= link_to property.name, property_path(property.id) %>
 
-  </li>
+      </li>
 
-<% end %>
-</ul>
+    <% end %>
+  </ul>
 </div>

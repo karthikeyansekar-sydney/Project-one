@@ -1,51 +1,51 @@
 <section class="form-auth text-center">
 
-<%= form_for @property do |f| %>
-<div class="field">
+  <%= form_for @property do |f| %>
+  <div class="field">
 
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-  <br>
-</div>
-<div class="field">
+    <%= f.label :name, :class => 'sr-only' %><br>
+    <%= f.text_field :name, :class => 'form-control', :placeholder => 'name' %>
+    <br>
+  </div>
+  <div class="field">
 
-  <%= f.label :address %><br>
-  <%= f.text_field :address %>
-  <br>
-</div>
+    <%= f.label :address, :class => 'sr-only' %><br>
+    <%= f.text_field :address, :class => 'form-control', :placeholder => 'address' %>
+    <br>
+  </div>
 
   <div class="field">
 
-  <%= f.label :price %><br>
-  <%= f.text_field :price %>
-  <br>
-</div>
+    <%= f.label :price, :class => 'sr-only' %><br>
+    <%= f.text_field :price, :class => 'form-control', :placeholder => 'price' %>
+    <br>
+  </div>
 
   <div class="field">
 
-  <%= f.label :rooms %><br>
-  <%= f.text_field :rooms %>
-  <br>
-  <div class="field">
+    <%= f.label :rooms, :class => 'sr-only' %><br>
+    <%= f.text_field :rooms, :class => 'form-control', :placeholder => 'bed rooms' %>
+    <br>
+    <div class="field">
 
-  <%= f.label :bathrooms %><br>
-  <%= f.text_field :bathrooms %>
-  <br>
-</div>
+      <%= f.label :bathrooms, :class => 'sr-only' %><br>
+      <%= f.text_field :bathrooms, :class => 'form-control', :placeholder => 'bathrooms'%>
+      <br>
+    </div>
 
-  <div class="field">
+    <div class="field">
 
-  <%= f.label :image, 'Image URL' %><br>
-  <%= f.text_field :image %>
+      <%= f.label :image, 'Image URL', :class => 'sr-only' %><br>
+      <%= f.text_field :image, :class => 'form-control' , :placeholder => 'image'%>
 
-  <br>
-  <br>
-</div>
+      <br>
+      <br>
+    </div>
 
-<div class="field">
+    <div class="field">
 
-  <%= f.submit %>
-</div>
+      <%= f.submit :class => 'btn btn-success' %>
+    </div>
 
-<% end %>
+  <% end %>
 </section>

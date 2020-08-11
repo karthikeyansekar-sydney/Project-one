@@ -38,9 +38,14 @@ img{
   border-radius: 10px;
 }
 
-.form-signin {
+.form-signin, section {
     width: 100%;
     max-width: 330px;
     padding: 15px;
     margin: auto;
+}
+
+.name{
+  font-style: italic;
+  font-weight: bold;
 }
