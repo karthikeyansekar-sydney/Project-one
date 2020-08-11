@@ -49,3 +49,13 @@ img{
   font-style: italic;
   font-weight: bold;
 }
+
+.rounded-circle{
+height: 140px;
+width: 140px;
+}
+
+.featurette-image{
+  width: 500px;
+  height: 500px;
+}
