@@ -3,39 +3,33 @@
   <%= form_for @property do |f| %>
   <div class="field">
 
-    <%= f.label :name, :class => 'sr-only' %><br>
     <%= f.text_field :name, :class => 'form-control', :placeholder => 'name' %>
     <br>
   </div>
   <div class="field">
 
-    <%= f.label :address, :class => 'sr-only' %><br>
     <%= f.text_field :address, :class => 'form-control', :placeholder => 'address' %>
     <br>
   </div>
 
   <div class="field">
 
-    <%= f.label :price, :class => 'sr-only' %><br>
     <%= f.text_field :price, :class => 'form-control', :placeholder => 'price' %>
     <br>
   </div>
 
   <div class="field">
 
-    <%= f.label :rooms, :class => 'sr-only' %><br>
     <%= f.text_field :rooms, :class => 'form-control', :placeholder => 'bed rooms' %>
     <br>
     <div class="field">
 
-      <%= f.label :bathrooms, :class => 'sr-only' %><br>
       <%= f.text_field :bathrooms, :class => 'form-control', :placeholder => 'bathrooms'%>
       <br>
     </div>
 
     <div class="field">
 
-      <%= f.label :image, 'Image URL', :class => 'sr-only' %><br>
       <%= f.text_field :image, :class => 'form-control' , :placeholder => 'image'%>
 
       <br>

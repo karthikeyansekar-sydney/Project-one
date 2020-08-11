@@ -9,19 +9,15 @@
 <%= form_for @user, html: {:class=> 'form-signin'} do |f| %>
 <h2 class="h3 mb-3 font-weight-normal">Create an Account</h2>
 
-<%= f.label :name, :class => 'sr-only' %>
 <%= f.text_field :name, :class => 'form-control' , :placeholder => 'Name'%>
 <br>
 
-<%= f.label :email,:class => 'sr-only' %>
 <%= f.text_field :email, :class => 'form-control', :placeholder => 'E-mail' %>
 <br>
 
-<%= f.label :password, :class => 'sr-only' %>
 <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password'%>
 <br>
 
-<%= f.label :password_confirmation, :class => 'sr-only' %>
 <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'Re-enter Password' %>
 <br>
 
