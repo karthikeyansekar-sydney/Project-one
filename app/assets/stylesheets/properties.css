@@ -61,12 +61,16 @@ width: 140px;
   height: 400px;
   background-size: cover;
   margin-bottom: 40px;
+  margin: 20px;
 }
 
-.align-self-center{
-  background-color: #b2ffff ;
+.align-self-start{
+  background-color: black ;
   border-radius: 10px;
-  box-shadow: 0 8px 8px -6px black;
+  box-shadow: 0 10px 10px 5px #228B22;
+  color: white;
+  margin: 20px;
+  padding: 20px;
 }
 
 .icons{
