@@ -65,20 +65,24 @@ width: 140px;
 }
 
 .align-self-start{
-  background-color: black ;
+  background-color: #7FFAFF;
   border-radius: 10px;
-  box-shadow: 0 10px 10px 5px #228B22;
-  color: white;
+  box-shadow: 0 10px 10px 5px black;
   margin: 20px;
   padding: 20px;
 }
 
 .icons{
   display: inline-block;
-  width: 15px;
+  width: 30px;
   height: 15px;
 }
 .icon{
-  max-width: 20px;
-  max-height: 20px;
+  max-width: 10px;
+  max-height: 10px;
+}
+
+.brok{
+  margin: 20px;
+  padding: 20px;
 }

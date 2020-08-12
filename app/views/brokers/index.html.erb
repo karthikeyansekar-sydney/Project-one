@@ -1,0 +1,16 @@
+<div class="prop-index">
+
+  <h2>All Brokers</h2>
+
+  <ul>
+    <% @brokers.each do |broker| %>
+
+      <li>
+
+        <%= link_to broker.name, broker_path(broker.id) %>
+
+      </li>
+
+    <% end %>
+  </ul>
+</div>

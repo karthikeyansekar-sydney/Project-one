@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'pages/welcome'
-  get 'pages/home'
+
+
   root to: 'properties#main'
   # 2. Form submit, create, redirect to index
   get '/properties/new' => 'properties#new', as: 'new_property'
@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
 
   resources :users
+  resources :brokers
 end

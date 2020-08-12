@@ -17,31 +17,29 @@
   <br>
 
   <p>
-    <strong>Name:</strong>
-    <%= @property.name %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
+    <span class="icon"><%= image_tag ('agenda.png') %></span>
     <%= @property.address %>
   </p>
 
   <p>
-    <strong>Price</strong>
+    <span class="icon"><%= image_tag ('coin.png') %></span>
     $<%= @property.price %>
   </p>
 
   <p>
-    <strong>Bedrooms:</strong>
-    <%= @property.rooms %>
     <span class="icons"><%= image_tag ('bed.svg') %></span>
+    <%= @property.rooms %>
 
   </p>
 
   <p>
-    <strong>Bathrooms:</strong>
-    <%= @property.bathrooms %>
     <span class="icons"><%= image_tag ('bath.svg') %></span>
+
+    <%= @property.bathrooms %>
+  </p>
+  <p>
+    <span class="icons"><%= image_tag ('car.png') %></span>
+    <%= @property.garage %>
   </p>
 </div>
 <div class="col prop-main-photo">
