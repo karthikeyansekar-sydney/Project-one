@@ -35,14 +35,17 @@ puts User.first.properties.pluck(:name).join(',')
 Broker.destroy_all
 
 b1 = Broker.create! mailid: 'matt@ga.com', name: 'Matt', agency: 'Belle Property', phno: '0411233453', image: 'https://img-cdn.tid.al/o/18dbd99c8f8166cb175c39506e15aa643856f4f0.jpg'
-b2 = Broker.create! mailid: 'Peet@ga.com', name: 'Peet', agency: 'Strathfield Property', phno: '0411231243', image: 'https://img-cdn.tid.al/o/18dbd99c8f8166cb175c39506e15aa643856f4f0.jpg'
-b3 = Broker.create! mailid: 'charles@ga.com', name: 'Charles', agency: 'Belle Property', phno: '0423003453', image: 'https://img-cdn.tid.al/o/18dbd99c8f8166cb175c39506e15aa643856f4f0.jpg'
-b4 = Broker.create! mailid: 'josh@ga.com', name: 'Josh', agency: 'Paramatta Agency', phno: '0411235678', image: 'https://img-cdn.tid.al/o/18dbd99c8f8166cb175c39506e15aa643856f4f0.jpg'
+b2 = Broker.create! mailid: 'Peet@ga.com', name: 'Peet', agency: 'Strathfield Property', phno: '0411231243', image: 'https://images.squarespace-cdn.com/content/v1/560ee0e1e4b095574c38f56e/1464547365674-4ZCBPD5ZMM2M9JMHXEWG/ke17ZwdGBToddI8pDm48kA57psLcJ0KzoacvYg9C0uJZw-zPPgdn4jUwVcJE1ZvWhW7QUl7Hlx1Ovi-Ue4YINkJFbgE-7XRK3dMEBRBhUpxhPjOCAs8IFeJyjCSdDFafgAX2bzmz_KFYnAi2-Hv4xS8kYZViurNA_T6eBmOHyxg/ThousandOaks-Malibu-Calabasas-Executive-Portrait-Business-Headshot-KarenVaisman-Photography.jpg?format=1500w'
+b3 = Broker.create! mailid: 'charles@ga.com', name: 'Charles', agency: 'Belle Property', phno: '0423003453', image: 'https://images.squarespace-cdn.com/content/v1/5aee389b3c3a531e6245ae76/1526916905349-R9JQ5EY0X8TMBV2879TI/ke17ZwdGBToddI8pDm48kJUlZr2Ql5GtSKWrQpjur5t7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfNdxJhjhuaNor070w_QAc94zjGLGXCa1tSmDVMXf8RUVhMJRmnnhuU1v2M8fLFyJw/DBS_AlexAnderson_4263.jpg'
+b4 = Broker.create! mailid: 'josh@ga.com', name: 'Josh', agency: 'Paramatta Agency', phno: '0411235678', image: 'https://images.squarespace-cdn.com/content/v1/592738c58419c2fe84fbdb81/1518946156123-Y7ZIHA4WSMT07H59S81T/ke17ZwdGBToddI8pDm48kIKay4bYLpKTFWoXFdGxjdZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmo3_5ncHsS_KC884-Z46vJXn_CAy8A416_wq-2ydr5e5Si7pbxezXfOOzs3720f9z/DwayneBrownStudio_Kevin_Ottawa_LinkedIn_Portrait.jpg?format=500w'
 
 puts "Created #{Broker.count} brokers."
 
-b1.properties << p1 << p3
+b1.properties << p1
 b2.properties << p2
+b3.properties << p4
+b2.properties << p3
 
-print "User #{Broker.first.name} who works for #{Broker.first.agency} deals with the following properties:"
+
+print "Broker #{Broker.first.name} who works for #{Broker.first.agency} deals with the following properties:"
 puts Broker.first.properties.pluck(:name).join(',')

@@ -18,6 +18,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @brokers = Broker.all
     @property = Property.find params[:id]
   end
 

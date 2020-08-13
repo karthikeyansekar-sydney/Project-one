@@ -4,16 +4,15 @@
 
 
   <div class="col align-self-start">
-
   <h2>
     <%= @property.name %>
     <span><%= image_tag ('real-estate.png') %></span>
   </h2>
-
+  <% if @current_user.present? && @current_user.admin? %>
   <%= link_to 'Edit Property', edit_property_path(@property.id) %>
   |
   <%= link_to 'Delete Property', property_path(@property.id), method: 'delete' %>
-
+<% end %>
   <br>
 
   <p>
@@ -46,4 +45,45 @@
   <%= cl_image_tag @property.image%>
 </div>
 </div>
+<div class="row">
+  <% @brokers.each do |broker| %>
+  <% if @property.broker_id == broker.id  %>
+
+
+    <div class="col">
+
+    <h2>
+      <strong>Broker Details</strong>
+    </h2>
+
+    <br>
+
+    <p>
+      <span class="icon">
+        <strong>Name:</strong><%= broker.name %>
+    </p>
+
+    <p>
+      <span class="icon">
+        <strong>Agency:</strong><%= broker.agency %>
+    </p>
+
+    <p>
+        <strong>Contact Number:</strong><%= broker.phno %>
+
+    </p>
+
+    <p>
+
+        <strong>Email-Id:</strong><%= broker.mailid %>
+    </p>
+    <%= cl_image_tag broker.image, :class => "rounded-circle"%>
+
+  </div>
+
+
+  <% end %>
+<% end %>
+</div>
+
 </div>
