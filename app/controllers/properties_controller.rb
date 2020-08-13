@@ -28,7 +28,11 @@ class PropertiesController < ApplicationController
 
   def update
     property = Property.find params[:id]
-
+    if params[:file].present?
+      response = Cloudinary::Uploader.upload(params[:file])
+      property.image = response['public_id']
+      property.save
+    end
     # Use the same strong params method we used in the create action, for this update:
     property.update property_params
 

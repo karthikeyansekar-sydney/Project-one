@@ -1,12 +1,6 @@
 <div class="prop-index btns">
-
   <h2>All Brokers</h2>
-
-    <% @brokers.each do |broker| %>
-
-
-        <%= button_to broker.name, broker_path(broker.id), method: :get, :class => "btn btn-outline-info btn-lg btn-block" %>
-
-
-    <% end %>
+  <% @brokers.each do |broker| %>
+    <%= button_to broker.name, broker_path(broker.id), method: :get, :class => "btn btn-outline-info btn-lg btn-block" %>
+  <% end %>
 </div>

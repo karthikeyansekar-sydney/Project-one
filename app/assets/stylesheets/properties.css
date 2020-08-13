@@ -105,3 +105,19 @@ width: 140px;
 .form-inline{
   margin: 600px;
 }
+
+.container-fluid{
+  background-color: #f0f8ff;
+}
+
+footer{
+  background-color: #7FFAFF;
+}
+
+html{
+  background-color: #f0f8ff;
+}
+
+span {
+  font-weight: bold;
+}

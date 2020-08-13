@@ -27,7 +27,11 @@ class BrokersController < ApplicationController
 
   def update
     broker = Broker.find params[:id]
-
+    if params[:file].present?
+      response = Cloudinary::Uploader.upload(params[:file])
+      broker.image = response['public_id']
+      broker.save
+    end
     # Use the same strong params method we used in the create action, for this update:
     broker.update broker_params
 

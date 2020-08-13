@@ -1,89 +1,68 @@
-
 <div class="container-fluid">
-<div class="row">
-
-
-  <div class="col align-self-start">
-  <h2>
-    <%= @property.name %>
-    <span><%= image_tag ('real-estate.png') %></span>
-  </h2>
-  <% if @current_user.present? && @current_user.admin? %>
-  <%= link_to 'Edit Property', edit_property_path(@property.id) %>
-  |
-  <%= link_to 'Delete Property', property_path(@property.id), method: 'delete' %>
-<% end %>
-  <br>
-
-  <p>
-    <span class="icon"><%= image_tag ('agenda.png') %></span>
-    <%= @property.address %>
-  </p>
-
-  <p>
-    <span class="icon"><%= image_tag ('coin.png') %></span>
-    $<%= @property.price %>
-  </p>
-
-  <p>
-    <span class="icons"><%= image_tag ('bed.svg') %></span>
-    <%= @property.rooms %>
-
-  </p>
-
-  <p>
-    <span class="icons"><%= image_tag ('bath.svg') %></span>
-
-    <%= @property.bathrooms %>
-  </p>
-  <p>
-    <span class="icons"><%= image_tag ('car.png') %></span>
-    <%= @property.garage %>
-  </p>
-</div>
-<div class="col prop-main-photo">
-  <%= cl_image_tag @property.image%>
-</div>
-</div>
-<div class="row">
-  <% @brokers.each do |broker| %>
-  <% if @property.broker_id == broker.id  %>
-
-
-    <div class="col">
-
-    <h2>
-      <strong>Broker Details</strong>
-    </h2>
-
-    <br>
-
-    <p>
-      <span class="icon">
-        <strong>Name:</strong><%= broker.name %>
-    </p>
-
-    <p>
-      <span class="icon">
-        <strong>Agency:</strong><%= broker.agency %>
-    </p>
-
-    <p>
-        <strong>Contact Number:</strong><%= broker.phno %>
-
-    </p>
-
-    <p>
-
-        <strong>Email-Id:</strong><%= broker.mailid %>
-    </p>
-    <%= cl_image_tag broker.image, :class => "rounded-circle"%>
-
+  <div class="row">
+    <div class="col align-self-start">
+      <h2>
+        <%= @property.name %>
+        <span><%= image_tag ('real-estate.png') %></span>
+      </h2>
+      <% if @current_user.present? && @current_user.admin? %>
+        <%= link_to 'Edit Property', edit_property_path(@property.id) %>
+        |
+        <%= link_to 'Delete Property', property_path(@property.id), method: 'delete' %>
+      <% end %>
+      <br>
+      <p>
+        <span class="icon"><%= image_tag ('agenda.png') %></span>
+        <%= @property.address %>
+      </p>
+      <p>
+        <span class="icon"><%= image_tag ('coin.png') %></span>
+        $<%= @property.price %>
+      </p>
+      <p>
+        <span class="icons"><%= image_tag ('bed.svg') %></span>
+        <%= @property.rooms %>
+      </p>
+      <p>
+        <span class="icons"><%= image_tag ('bath.svg') %></span>
+        <%= @property.bathrooms %>
+      </p>
+      <p>
+        <span class="icons"><%= image_tag ('car.png') %></span>
+        <%= @property.garage %>
+      </p>
+    </div>
+    <div class="col prop-main-photo">
+      <%= cl_image_tag @property.image, :class => "img-fluid img-thumbnail"%>
+    </div>
   </div>
-
-
-  <% end %>
-<% end %>
-</div>
-
-</div>
+  <div class="row">
+    <% @brokers.each do |broker| %>
+      <% if @property.broker_id == broker.id  %>
+        <div class="col">
+          <h2>
+            <strong>Broker Details</strong>
+          </h2>
+          <p>
+            <span class="icon">
+              <strong>Name:</strong><%= broker.name %>
+            </p>
+            <p>
+              <span class="icon">
+                <strong>Agency:</strong><%= broker.agency %>
+              </p>
+              <p>
+                <strong>Contact Number:</strong><%= broker.phno %>
+              </p>
+              <p>
+                <strong>Email-Id:</strong><%= broker.mailid %>
+              </p>
+              <div class="col">
+                <%= cl_image_tag broker.image, :class => "rounded-circle"%>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <%= button_to 'Back', properties_path, method: :get, :class => "btn btn-light" %>
+    </div>

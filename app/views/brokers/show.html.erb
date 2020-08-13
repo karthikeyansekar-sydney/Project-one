@@ -1,43 +1,30 @@
-
 <div class="container">
-<div class="row">
-
-
-  <div class="col align-self-start brok">
-
-  <h2>
-    <strong>Broker Details</strong>
-  </h2>
-
-  <%= link_to 'Edit Broker Details', edit_broker_path(@broker.id) %>
-  |
-  <%= link_to 'Delete Broker Details', broker_path(@broker.id), method: 'delete' %>
-
-  <br>
-
-  <p>
-    <span class="icon">
-      <strong>Name:</strong><%= @broker.name %>
-  </p>
-
-  <p>
-    <span class="icon">
-      <strong>Agency:</strong><%= @broker.agency %>
-  </p>
-
-  <p>
-      <strong>Contact Number:</strong><%= @broker.phno %>
-
-  </p>
-
-  <p>
-
-      <strong>Email-Id:</strong><%= @broker.mailid %>
-  </p>
-  <%= cl_image_tag @broker.image, :class => "rounded-circle"%>
-
-</div>
-  <div class="col ">
-</div>
-</div>
-</div>
+  <div class="row">
+    <div class="col align-self-start brok">
+      <h2>
+        <strong>Broker Details</strong>
+      </h2>
+      <%= link_to 'Edit Broker Details', edit_broker_path(@broker.id) %>
+      |
+      <%= link_to 'Delete Broker Details', broker_path(@broker.id), method: 'delete' %>
+      <br>
+      <p>
+        <span class="icon">
+          <strong>Name:</strong><%= @broker.name %>
+        </p>
+        <p>
+          <span class="icon">
+            <strong>Agency:</strong><%= @broker.agency %>
+          </p>
+          <p>
+            <strong>Contact Number:</strong><%= @broker.phno %>
+          </p>
+          <p>
+            <strong>Email-Id:</strong><%= @broker.mailid %>
+          </p>
+          <%= cl_image_tag @broker.image, :class => "rounded-circle"%>
+        </div>
+        <div class="col "></div>
+      </div>
+      <%= button_to 'Back', brokers_path, method: :get, :class => "btn btn-light" %>
+    </div>
