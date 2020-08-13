@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # 2. Form submit, update property, redirect to show
   patch '/properties/:id' => 'properties#update'
-
+  get '/search' => 'properties#search'
   delete '/properties/:id' => 'properties#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

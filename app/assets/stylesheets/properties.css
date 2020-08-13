@@ -14,14 +14,23 @@ img.property {
   align-items: center;
 }
 
-.prop-show , .prop-index {
+.prop-show, .prop-index{
   text-align: center;
-  background-color: #b2ffff;
-/* #ffebf5 */
+  background-color: #f0f8ff;
 }
 
 ul {
   list-style-type: none;
+}
+
+.btns {
+  margin: 10px;
+  padding: 10px;
+}
+
+.btnss {
+  margin: 5px;
+  padding: 5px;
 }
 
 main {
@@ -91,4 +100,8 @@ width: 140px;
   box-shadow: 5px 10px 5px 0px #7FFAFF;
   margin: 20px;
   padding: 20px;
+}
+
+.form-inline{
+  margin: 600px;
 }

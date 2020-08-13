@@ -34,7 +34,11 @@
       <br>
       <br>
     </div>
+<div class="field">
+  broker:
+  <%= f.select :broker_id, options_from_collection_for_select(Broker.all, "id", "name") %>
 
+</div>
     <div class="field">
 
       <%= f.submit :class => 'btn btn-success' %>

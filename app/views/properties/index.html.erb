@@ -1,18 +1,28 @@
-<div class="prop-index">
+<div class="prop-index btns">
 
   <h2>All Properties</h2>
+  <!-- <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Search Property by suburb" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <#%= f.submit :class => 'btn btn-warning' %>
 
-  <ul class="list-group">
-    <% @properties.each do |property| %>
+  </div>
+</div> -->
+<%= form_tag search_path, :method => 'get', :class=> 'form-signin' do %>
+  <%= text_field_tag :search_name, params[:search_name], :class => 'form-control', :placeholder => 'search by suburb' %>
+  <div class="btnss">
 
-      <li class="list-group-item">
-        <!-- SHOW page URL is /propertys/:id -->
-        <!-- <a href="<#%=property_path( property.id ) %>"> < #%= property.name %> </a> -->
+  <div class="btn-group">
+  Bedrooms:<%= select_tag "bedrooms",options_for_select(['',1,2,3,4,5], :class => "dropdown-menu") %>
+  </div>
+  <%= submit_tag "Search", :class=> 'btn btn-warning btn-sm' %>
+</div>
 
-        <%= link_to property.name, property_path(property.id) %>
+<% end %>
 
-      </li>
-
+<div class="btns">
+  <% @properties.each do |property| %>
+<%= button_to property.name, property_path(property.id), method: :get, :class => "btn btn-outline-info btn-lg btn-block" %>
     <% end %>
-  </ul>
+</div>
 </div>

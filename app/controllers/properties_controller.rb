@@ -41,6 +41,17 @@ class PropertiesController < ApplicationController
     redirect_to properties_path
   end
 
+  def search
+    prop = params[:search_name]
+    if prop.present?
+      @properties = Property.where('address ILIKE ?', "%#{prop}%")
+    else
+      @properties = Property.all
+    end
+    if params[:bedrooms].present?
+      @properties = @properties.where(rooms: params[:bedrooms])
+    end
+  end
   private
   # ^ private means the following methods (until the end of the class)
   #   are NOT actions, i.e. they do not correspond to routes
@@ -48,6 +59,6 @@ class PropertiesController < ApplicationController
   # Strong params! Acts like a doorman with a door list, only letting through
   # the specified form param fields, so we can add them to our table
   def property_params
-    params.require(:property).permit(:name, :address, :price, :rooms, :bathrooms, :image)
+    params.require(:property).permit(:name, :address, :price, :rooms, :bathrooms, :image, :broker_id)
   end
 end
