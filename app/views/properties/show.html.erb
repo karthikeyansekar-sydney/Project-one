@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col align-self-start">
+    <div class="col align-self-start spaces">
       <h2>
         <%= @property.name %>
         <span><%= image_tag ('real-estate.png') %></span>
@@ -39,7 +39,7 @@
   <div class="row">
     <% @brokers.each do |broker| %>
       <% if @property.broker_id == broker.id  %>
-        <div class="col">
+        <div class="col space">
           <h2>
             <strong>Broker Details</strong>
           </h2>
@@ -64,5 +64,7 @@
           <% end %>
         </div>
       </div>
-      <%= button_to 'Back', properties_path, method: :get, :class => "btn btn-light" %>
+      <div >
+        <%= button_to 'Back', properties_path, method: :get, :class => "btn btn-light" %>
+      </div>
     </div>
