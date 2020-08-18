@@ -40,6 +40,7 @@ This is a Real Estate website where a customer can view the list of preperties a
 
 
 ## CodeExamples
+```html
 <h5>Sample rails code:</h5>
 <section class="form-auth text-center">
   <%= form_for @property, html: {multipart: true} do |f| %>
@@ -80,7 +81,7 @@ This is a Real Estate website where a customer can view the list of preperties a
     </div>
   <% end %>
 </section>
-
+```
 
 ## Features
 List of features ready:
