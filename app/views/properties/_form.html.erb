@@ -1,4 +1,11 @@
 <section class="form-auth text-center">
+  <% if @property.errors.full_messages.any? %>
+  <ul>
+    <% @property.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
+<% end %>
   <%= form_for @property, html: {multipart: true} do |f| %>
   <div class="field">
     <%= f.text_field :name, :class => 'form-control', :placeholder => 'name' %>
@@ -21,13 +28,20 @@
       <br>
     </div>
     <div class="field">
+      <%= f.text_field :garage, :class => 'form-control', :placeholder => 'car garage'%>
+      <br>
+    </div>
+    <div class="field">
       <span>Broker:</span>
       <%= f.select :broker_id, options_from_collection_for_select(Broker.all, "id", "name") %>
       <br>
       <br>
     </div>
     <div class="field">
-      <%= f.cl_image_upload :image %>
+      <%= yield f %> <!-- this plugs in the block from the render in edit.html.erb -->
+    </div>
+    <div class="field">
+      <%= cl_image_upload_tag :photo_image %>
       <br>
       <br>
     </div>

@@ -2,11 +2,11 @@ puts "Creating properties"
 
 Property.destroy_all
 
-p1 = Property.create! name: 'Auburn square', address: '35, Northumberland Rd, Auburn, NSW', price: 600000, rooms: 3, bathrooms: 2, garage: 1, image: 'https://rimh2.domainstatic.com.au/HZr3aMrP9Mq7iTc3CuIrbAiUsvQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/908badf3-fa63-490a-b843-06f04d91d7a2-w1440-h1080'
-p2 = Property.create! name: 'River Realty', address: '36, Victoria Street, Mcmahons Point, NSW', price: 600000, rooms: 4, bathrooms: 2, garage: 2, image: 'https://rimh2.domainstatic.com.au/Yuovn_kxahV7G8OkPOw0Oab4QXM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/2016405420_1_1_200728_073453-w4000-h2667'
-p3 = Property.create! name: 'Malvern Avenue', address: '49, Malvern Avenue, Manly, NSW 2095', price: 600000, rooms: 2, bathrooms: 2, garage: 2, image: 'https://rimh2.domainstatic.com.au/hzVJfNiBmvhAjMwTSGvsewfxw6U=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/2016388660_1_1_200721_023310-w1600-h1200'
+p1 = Property.create! name: 'Auburn square', address: '35, Northumberland Rd, Auburn, NSW', price: 600000, rooms: 3, bathrooms: 2, garage: 1
+p2 = Property.create! name: 'River Realty', address: '36, Victoria Street, Mcmahons Point, NSW', price: 600000, rooms: 4, bathrooms: 2, garage: 2
+p3 = Property.create! name: 'Malvern Avenue', address: '49, Malvern Avenue, Manly, NSW 2095', price: 600000, rooms: 2, bathrooms: 2, garage: 2
 p4 = Property.create! name: 'Robertson Park Avenue', address: '247, Lambert Road, Indooroopilly, QLD 4068
-', price: 2000000, rooms: 4, bathrooms: 3, garage: 3, image: 'https://rimh2.domainstatic.com.au/3XKhcljObekwUkQ-fCl6uIzMK_M=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/2016421009_1_1_200805_053452-w1600-h1200'
+', price: 2000000, rooms: 4, bathrooms: 3, garage: 3
 
 puts "created #{Property.count} properties."
 
@@ -38,6 +38,21 @@ b2.properties << p2
 b3.properties << p4
 b2.properties << p3
 
+Photo.destroy_all
 
 print "Broker #{Broker.first.name} who works for #{Broker.first.agency} deals with the following properties:"
 puts Broker.first.properties.pluck(:name).join(',')
+
+ph1 = Photo.create! title: 'prop_one', image: 'https://rimh2.domainstatic.com.au/wXqwZ70cOkmj2tihCFgAI3Ac1iE=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/558284a6-d855-454c-afdc-98af189f0675-w2000-h1125'
+ph2 = Photo.create! title: 'prop_two', image: 'https://rimh2.domainstatic.com.au/Sq-iNjTSMfnnoA4U_OPP06mSEec=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/d24eed45-43a8-464e-a1e0-d3220b07af3b-w2000-h1125'
+ph3 = Photo.create! title: 'prop_three', image: 'https://rimh2.domainstatic.com.au/ygYLNmzmylDe2c87iYVkmcLu-rI=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/180ce1b4-8838-4c2e-8872-bdbd7e26af32-w2000-h1125'
+ph4 = Photo.create! title: 'prop_four', image: 'https://rimh2.domainstatic.com.au/9K9F5Eb-eVouqzN-L5F6-5J3R-U=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/2016434402_1_1_200812_075023-w4242-h2756'
+ph5 = Photo.create! title: 'prop_five', image: 'https://rimh2.domainstatic.com.au/8Akg8xpgPCbDBremDPYrsNNW_xA=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/2016388007_4_1_200721_120715-w1920-h1280'
+ph6 = Photo.create! title: 'prop_six', image: 'https://rimh2.domainstatic.com.au/_nq4Xkw-G8PbBf-fufDVxM2lprI=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/http://b.domainstatic.com.au.s3-website-ap-southeast-2.amazonaws.com/2016404014_1_1_200728_021754-w4000-h2667'
+
+puts "Created #{Photo.count} pictures."
+
+p1.photos << ph1
+p2.photos << ph2 << ph3
+p3.photos << ph4 << ph6
+p4.photos << ph5

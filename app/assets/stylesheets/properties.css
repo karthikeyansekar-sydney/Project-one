@@ -1,3 +1,7 @@
+a:hover {
+  cursor:pointer;
+ }
+
 img.property {
   max-height: 600px;
 }
@@ -15,7 +19,6 @@ img.property {
 }
 
 .prop-show, .prop-index{
-  text-align: center;
   background-color: #f0f8ff;
 }
 

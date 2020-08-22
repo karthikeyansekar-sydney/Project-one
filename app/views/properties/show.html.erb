@@ -11,6 +11,13 @@
         <%= link_to 'Delete Property', property_path(@property.id), method: 'delete' %>
       <% end %>
       <br>
+      <div>
+      <% @property.photos.each do |photo| %>
+      <%= cl_image_tag photo.image, :class => "img-fluid img-thumbnail"%>
+      <br>
+      <% end %>
+    </div>
+
       <p>
         <span class="icon"><%= image_tag ('agenda.png') %></span>
         <%= @property.address %>
@@ -32,36 +39,32 @@
         <%= @property.garage %>
       </p>
     </div>
-    <div class="col prop-main-photo">
-      <%= cl_image_tag @property.image, :class => "img-fluid img-thumbnail"%>
-    </div>
+
   </div>
   <div class="row">
-    <% @brokers.each do |broker| %>
-      <% if @property.broker_id == broker.id  %>
+      <% if @property.broker.present? %>
         <div class="col space">
           <h2>
             <strong>Broker Details</strong>
           </h2>
           <p>
             <span class="icon">
-              <strong>Name:</strong><%= broker.name %>
+              <strong>Name:</strong><%= @property.broker.name %>
             </p>
             <p>
               <span class="icon">
-                <strong>Agency:</strong><%= broker.agency %>
+                <strong>Agency:</strong><%= @property.broker.agency %>
               </p>
               <p>
-                <strong>Contact Number:</strong><%= broker.phno %>
+                <strong>Contact Number:</strong><%= @property.broker.phno %>
               </p>
               <p>
-                <strong>Email-Id:</strong><%= broker.mailid %>
+                <strong>Email-Id:</strong><%= @property.broker.mailid %>
               </p>
               <div class="col">
-                <%= cl_image_tag broker.image, :class => "rounded-circle"%>
+                <%= cl_image_tag @property.broker.image, :class => "rounded-circle"%>
               </div>
             <% end %>
-          <% end %>
         </div>
       </div>
       <div >

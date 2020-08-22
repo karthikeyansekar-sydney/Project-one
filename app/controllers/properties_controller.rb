@@ -4,21 +4,26 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    @property = Property.new(property_params) # use strong params to filter the form fields being saved
-    if params[:file].present?
-      response = Cloudinary::Uploader.upload(params[:file])
-      @property.image = response['public_id']
-      @property.save
+    @property = Property.create(property_params) # use strong params to filter the form fields being saved
+    if @property.persisted?
+      #property successfully created ..try uploading a photo
+      if params[:file].present?
+        response = Cloudinary::Uploader.upload(params[:file])
+        Photo.create image: response['public_id'], property_id: @property.id
+      end
+      redirect_to properties_path
+    else
+      #validation error for property..Redisplay Form
+      render :new
     end
-    redirect_to properties_path
-  end
+  end #create
 
   def index
+    @photos = Photo.all
     @properties = Property.all
   end
 
   def show
-    @brokers = Broker.all
     @property = Property.find params[:id]
   end
 
@@ -27,14 +32,23 @@ class PropertiesController < ApplicationController
   end
 
   def update
-    property = Property.find params[:id]
-    if params[:file].present?
-      response = Cloudinary::Uploader.upload(params[:file])
-      property.image = response['public_id']
-      property.save
+    @property = Property.find params[:id]
+    if @property.update property_params #returns true
+      #remove all photo associations so we can add back only the photos that are checked in the edit form
+      #we do this before the file upload so we dont lose the association of the uploaded photo
+      @property.photos.delete_all
+
+      if params[:file].present?
+        response = Cloudinary::Uploader.upload(params[:file])
+        Photo.create image: response['public_id'], property_id: @property.id
+      end
+
+      #reset photo associations from checked list in form
+      @property.photos << Photo.find(params[:photo_id])
+      redirect_to properties_path
+    else
+       render :edit
     end
-    property.update property_params
-    redirect_to properties_path
   end
 
   def destroy
@@ -55,6 +69,6 @@ class PropertiesController < ApplicationController
   end
   private
   def property_params
-    params.require(:property).permit(:name, :address, :price, :rooms, :bathrooms, :image, :broker_id)
+    params.require(:property).permit(:name, :address, :price, :rooms, :bathrooms, :garage, :broker_id)
   end
 end
