@@ -3,6 +3,7 @@ Property-Picker
 
 ## Table of contents
 * [LiveDemoLink](#LiveDemoLink)
+* [LoginDetails](#LoginDetails)
 * [Description](#Description)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
@@ -15,6 +16,9 @@ Property-Picker
 
 ## LiveDemoLink
 [LiveDemoLink](https://property-picker.herokuapp.com/)
+
+## LoginDetails
+Email: kart@ga.com Password: chicken 
 
 ## Description
 This is a Real Estate website where a customer can view the list of preperties available to buy and also the broker details for more info if needed. An Admin can upload properties, edit them or delete and also he can add a new broker, edit or delete.
